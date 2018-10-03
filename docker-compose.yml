@@ -1,0 +1,14 @@
+version: "2.0"
+services:
+  web:
+    image: php:apache
+    ports:
+      - "8000:80"
+    volumes:
+      - "./web:/var/www/html"
+  ssh:
+    image: sickp/alpine-sshd
+    ports:
+      - "8022:22"
+    volumes_from: 
+      - web
